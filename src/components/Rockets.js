@@ -1,10 +1,15 @@
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { reserveRocket, cancelReservation } from '../redux/rockets/rockets';
+import { toggleReservation } from '../redux/rockets/rocketsSlice';
+import { fetchRockets } from '../redux/rockets/rocketsSlice';
 import './Rockets.css';
 
 const Rockets = () => {
-  const rockets = useSelector((state) => state.rocketsReducer);
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchRockets());
+  }, []);
+  const rockets = useSelector((state) => state.rockets);
 
   return (
     <section className="rockets">
@@ -13,14 +18,14 @@ const Rockets = () => {
           <img className="img" src={item.flickr_images} alt="rocket" />
           <div className="rocket-info">
             <h2>{item.rocket_name}</h2>
-            {item.reserved ? (
-              <p>
+            <p>
+              {item.reserved &&
                 <span className="span">Reserved</span>
+              }
                 {rockets[0].description}
               </p>
-            ) : <p>{rockets[0].description}</p>}
-            { (item.reserved) ? <button className="button button-cancel-reservation" type="button" onClick={() => dispatch(cancelReservation(item.id))}>Cancel Reservation</button>
-              : <button className="button button-reserve" type="button" onClick={() => dispatch(reserveRocket(item.id))}>Reserve Rocket</button>}
+            { (item.reserved) ? <button className="button button-cancel-reservation" type="button" onClick={() => dispatch(toggleReservation(item.id))}>Cancel Reservation</button>
+              : <button className="button button-reserve" type="button" onClick={() => dispatch(toggleReservation(item.id))}>Reserve Rocket</button>}
           </div>
         </div>
       ))}
