@@ -65,7 +65,7 @@ td {
 
 table {
   width: 95%;
-  margin: 40px auto 15px;
+  margin: 50px auto 15px;
 }
 
 th {
@@ -93,9 +93,9 @@ td:nth-child(4) {
   text-align: center;
 }
 
-td:nth-child(4) .leave-mission {
-  color: red;
-  border-color: red;
+.leave-mission {
+  color: red !important;
+  border-color: red !important;
 }
 
 button:focus {

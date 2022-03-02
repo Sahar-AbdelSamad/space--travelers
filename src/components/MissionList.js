@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { joinMission, leaveMission } from '../redux/missions/missions';
+import { toggleMissionReservation } from '../redux/missions/missionsSlice';
 
 const MissionList = (props) => {
   const dispatch = useDispatch();
@@ -14,8 +14,8 @@ const MissionList = (props) => {
       <td>{description}</td>
       {(reserved) ? <td><span className="badge squared-pill bg-primary text-light">Active Member</span></td> : <td><span className="badge squared-pill bg-secondary text-light">NOT A MEMBER</span></td>}
       <td>
-        { (reserved) ? <button className="btn leave-mission" type="button" onClick={() => dispatch(leaveMission(id))}>Leave Mission</button>
-          : <button className="btn btn-outline-secondary" type="button" onClick={() => dispatch(joinMission(id))}>Join Mission</button>}
+        { (reserved) ? <button className="btn leave-mission" type="button" onClick={() => dispatch(toggleMissionReservation(id))}>Leave Mission</button>
+          : <button className="btn btn-outline-secondary" type="button" onClick={() => dispatch(toggleMissionReservation(id))}>Join Mission</button>}
       </td>
     </tr>
   );

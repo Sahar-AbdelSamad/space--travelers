@@ -1,12 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import rocketsReducer from './rockets/rocketsSlice';
-// import missionsReducer from './missions/missionsSlice';
+import rocketsReducer, { fetchRockets } from './rockets/rocketsSlice';
+import missionsReducer, { fetchMissions } from './missions/missionsSlice';
+import mobileMenuReducer from './mobileMenu/mobileMenuSlice';
 
 export const store = configureStore({
   reducer: {
     rockets: rocketsReducer,
-    // missions: missionsReducer,
+    missions: missionsReducer,
+    mobileMenu: mobileMenuReducer,
   },
 });
+
+store.dispatch(fetchRockets());
+store.dispatch(fetchMissions());
 
 export default store;

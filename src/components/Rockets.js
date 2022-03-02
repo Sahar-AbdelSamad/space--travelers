@@ -1,14 +1,9 @@
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleReservation } from '../redux/rockets/rocketsSlice';
-import { fetchRockets } from '../redux/rockets/rocketsSlice';
 import './Rockets.css';
 
 const Rockets = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchRockets());
-  }, []);
   const rockets = useSelector((state) => state.rockets);
 
   return (
@@ -19,11 +14,10 @@ const Rockets = () => {
           <div className="rocket-info">
             <h2>{item.rocket_name}</h2>
             <p>
-              {item.reserved &&
-                <span className="span">Reserved</span>
-              }
-                {rockets[0].description}
-              </p>
+              {item.reserved
+                && <span className="span">Reserved</span>}
+              {rockets[0].description}
+            </p>
             { (item.reserved) ? <button className="button button-cancel-reservation" type="button" onClick={() => dispatch(toggleReservation(item.id))}>Cancel Reservation</button>
               : <button className="button button-reserve" type="button" onClick={() => dispatch(toggleReservation(item.id))}>Reserve Rocket</button>}
           </div>

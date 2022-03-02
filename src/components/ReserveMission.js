@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { leaveMission } from '../redux/missions/missions';
+import { toggleMissionReservation } from '../redux/missions/missionsSlice';
 
 const ReservedMissions = (props) => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const ReservedMissions = (props) => {
         {missionName}
       </td>
       <td className="td">
-        <button type="button" className="button button-reserve" onClick={() => dispatch(leaveMission(missionId))}>Leave Mission</button>
+        <button type="button" className="button button-reserve" onClick={() => dispatch(toggleMissionReservation(missionId))}>Leave Mission</button>
       </td>
       <td className="td">
         <button type="button" className="button button-reserve" onClick={() => window.open(wikipedia)}>Read More</button>

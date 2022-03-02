@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import ReservedMissions from './ReserveMission';
 
 const ReservedMissionsList = () => {
-  const missions = useSelector((state) => state.missionsReducer);
+  const missions = useSelector((state) => state.missions);
   const reserved = missions.filter((missions) => missions.reserved);
 
   return (

@@ -76,7 +76,6 @@
 }
 
 @media screen and (min-width: 992px) {
-  .fantastic-logo,
   .logo,
   .desktop-navig {
     display: block;
@@ -119,9 +118,10 @@
     background-size: 100% 100%;
     width: 50px;
     height: 50px;
+    display: block;
   }
 
-  .navBar {
+  .nlogoavBar {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -169,20 +169,15 @@
     border-right: 1px solid rgba(0, 0, 0, 0.301);
   }
 
-.fantastic-logo {
-  background-image: url(../assets/logo.png);
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-}
+  .fantastic- {
+    background-image: url(../assets/logo.png);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+  }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.header .navBar {
-  display: flex;
-  list-style: none;
+  .header .navBar {
+    display: flex;
+    list-style: none;
+  }
 }
