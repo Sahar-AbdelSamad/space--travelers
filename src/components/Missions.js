@@ -1,5 +1,5 @@
 import React from 'react';
-import MissionList from './MissionList';
+import MissionsTable from './MissionsTable';
 
 const Missions = () => (
   <div>

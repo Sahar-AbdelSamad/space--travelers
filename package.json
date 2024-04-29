@@ -22,10 +22,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.1",
-<<<<<<< HEAD
     "uuid": "^8.3.2",
-=======
->>>>>>> 0307ad5 (Revert "Rendering mission")
     "web-vitals": "^2.1.4"
   },
   "scripts": {
